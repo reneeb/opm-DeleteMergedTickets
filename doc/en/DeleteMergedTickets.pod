@@ -1,0 +1,19 @@
+=encoding utf-8
+
+=head1 NAME
+
+DeleteMergedTickets
+
+=head1 DESCRIPTION
+
+This addon installs a ticket event module that is called when a ticket is deleted. When there is a
+merged ticket linked and that ticket has no links to other tickets, that merged ticket is deleted as well.
+
+=head1 REPOSITORY AND BUGS
+
+If you find a bug, please file it at L<https://github.com/reneeb/opm-DeleteMergedTickets/issues> or
+send an email to I<opar+bugs@perl-services.de>.
+
+=head1 AUTHOR
+
+Renée Bäcker
