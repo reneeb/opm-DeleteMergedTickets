@@ -54,7 +54,6 @@ sub Run {
     my %TicketIDs = $TicketObject->TicketSearch(
         States => ['merged'],
         UserID => 1,
-        Limit  => $Limit,
     );
 
     my $ListOnly = $Self->GetOption('list-only');
@@ -93,6 +92,8 @@ sub Run {
             TicketID => $TicketID,
             UserID   => 1,
         );
+
+        last TICKETID if $Counter == $Limit;
     }
 
     $Self->Print("<yellow>Handled $Counter tickets.</yellow>\n");
