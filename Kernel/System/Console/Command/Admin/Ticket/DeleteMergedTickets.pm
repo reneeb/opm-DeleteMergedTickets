@@ -61,7 +61,7 @@ sub Run {
     my $Counter = 0;
 
     TICKETID:
-    for my $TicketID ( sort { $a cmp $b } keys %TicketIDs ) {
+    for my $TicketID ( sort { $a <=> $b } keys %TicketIDs ) {
         my %Ticket = $TicketObject->TicketGet(
             TicketID => $TicketID,
             UserID   => 1,
@@ -84,7 +84,7 @@ sub Run {
         next TICKETID if %{ $Parents || {} };
 
         $Self->Print("<yellow>$Ticket{TicketNumber} - $Ticket{Title}.</yellow>\n");
-        last TICKETID if $Counter++ == $Limit;
+        last TICKETID if ++$Counter == $Limit;
 
         next TICKETID if $ListOnly;
 
